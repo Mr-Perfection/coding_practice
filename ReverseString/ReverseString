@@ -1,0 +1,30 @@
+ public static String ReverseStringWithSB(char[] chars)
+    {
+        StringBuilder sb = new StringBuilder();
+        for(int i = chars.length-1;i >= 0;	--i)
+        {
+            sb.append(chars[i]);
+        }
+        return sb.toString();
+
+    }
+//Time efficiency: O(n) space efficiency: O(n)
+
+public static String ReverseStringWithStack(char[] chars)
+    {
+        Stack<Character> s = new Stack<Character>();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<chars.length; ++i)
+        {
+            s.push(chars[i]);
+        }
+        while(!s.isEmpty())
+        {
+            char c = s.pop();
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+//Time efficiency: O(2n)? Space complexity: O(n)
+
+
