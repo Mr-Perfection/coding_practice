@@ -1,0 +1,171 @@
+
+
+You are given a 2D matrix, a, of dimension MxN and a positive integer R. You have to rotate the matrix R times and print the resultant matrix. Rotation should be in anti-clockwise direction.
+
+Rotation of a 4x5 matrix is represented by the following figure. Note that in one rotation, you have to shift elements by one step only (refer sample tests for more clarity).
+
+It is guaranteed that the minimum of M and N will be even.
+
+Input Format 
+First line contains three space separated integers, M, N and R, where M is the number of rows, N is number of columns in matrix, and R is the number of times the matrix has to be rotated. 
+Then M lines follow, where each line contains N space separated positive integers. These M lines represent the matrix.
+
+Output Format 
+Print the rotated matrix.
+
+Constraints 
+2 <= M, N <= 300 
+1 <= R <= 109 
+min(M, N) % 2 == 0 
+1 <= aij <= 108, where i ∈ [1..M] & j ∈ [1..N]
+
+
+
+My Approach:
+	-Inputs are M, N, R. Matrix M x N and int R to rotate.
+	-Output is rotated matrix M x N by R.
+	-Create an array[M][N]. loop through [0][0], [0][1]… and assign the values. BTW array size is even number.
+	-If R == 1, 
+	-Create a temporary array which will store the values of an array . Then, Reassign the values to array[M ? R][M ? R] ? means that assignment depends on the position of element.
+	-Print the newly assigned array.
+
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        int M = sc.nextInt();   //assign input to M.
+        int N = sc.nextInt();   //assign input to N.
+        int R = sc.nextInt();   //assign input to R.
+        
+        int[][] a = new int[M][N];    //assign new array.
+        int[][] r_a = new int[M][N];   //rotated a. In this way, if we make mistakes, we can still have our original                                           //array. I think it is more safe instead of directly changing the values of                                              //array.
+        int delta_col = 0; //will be used to find the offset.
+        int delta_row = 0; //will be used to find the offset.
+        //Assign the values to the array.
+        int i =0, j = 0;
+        for(i=0;i<M;++i)    //Loop for rows
+        {
+           for(j=0;j<N;++j)    //loop for columns
+           {
+               a[i][j] = sc.nextInt();  //Assign the inputs to a[][] 
+           }
+        }   //EOF M loop
+        
+        int next_row = 0;
+        int next_col = 0;
+        final int half_row = M / 2 - 1;
+        final int half_col = N / 2 - 1;
+        int count_M = 0;
+        int count_N = 0;
+        for(i=0;i<M;++i)    //Loop for rows
+        {
+
+            for(j=0;j<N;++j)    //loop for columns
+            {
+                          
+                    /*First row rotates from left to right*/
+                    delta_col = j - R - next_row; //how much does it exceed the column limit
+                    
+                    if(i >=0 && i < half_row) 
+                    {
+                        while(delta_col < 0)
+                        {
+                            if(delta_col +M -1 < 0)
+                            {
+                                delta_col += M - 1;
+                                count_M++;
+                            }
+                            if(delta_col +N -1 < 0)
+                            {
+                                delta_col += M - 1;
+                                count_N++;
+                            }
+                        }
+                        if()
+                        if(delta_col < 0) //if column value and rotated value less than the total N column value
+                        {
+                            r_a[i-delta_col+next_row][j] = a[i][j]; //first column
+                            
+                        }
+                        else if(delta_col >= 0)
+                        {
+                            r_a[i][delta_col+next_col] = a[i][j];
+                        }    
+                        
+                    }
+      
+                if(j == 0)
+                {
+                     delta_row = i+R;
+                    if(delta_row < M)//Bottom row from left to right with the exceeded delta row.
+                        r_a[delta_row][j] = a[i][j];
+                    
+                    else if(delta_row >= M)//Shift columns to the right
+                    {
+                        delta_row = delta_row -M + 1;
+                        r_a[M-1][delta_row] = a[i][j];
+                    }    
+                }   //EOF if
+
+                //Shift columns to the right from left at the bottom
+                
+                if(i == M-1)
+                {
+                    delta_col = j + R; //how much does it exceed the column limit
+                    if(delta_col < N)
+                        r_a[i][delta_col] = a[i][j];
+                    else if(delta_col >= N)
+                    {
+                        delta_row = delta_col - N + 1;
+                        r_a[i-delta_row][N-1] = a[i][j];
+                    }
+
+                }   //EOF if
+                
+                //Shift rows from bottom to top
+                
+                delta_row = i - R; //Check how much does it exceed the row limit.
+                if(j == N-1)
+                {
+                    
+                    
+                    if(delta_row < 0)
+                        r_a[0][j + delta_row] = a[i][j];//Subtracted from the total column number                                                                                     
+                    else if(delta_row >= 0) //Check if it exceeds the M rows limit
+                    {
+                        
+                        r_a[delta_row][N-1] = a[i][j];
+                    }
+
+                }   //EOF if
+                
+                next_col++;
+             }   //EOF N loop
+            next_row++; //Increments next row
+        }//EOF M
+        
+        for(i=0;i<M;++i)    //Loop for rows
+        {
+            
+            for(j=0;j<N;++j)    //loop for columns
+            {
+                System.out.print(r_a[i][j]+" ");
+                
+            }
+            System.out.println();
+            
+        }
+        
+        
+        
+    }
+}
+
+
