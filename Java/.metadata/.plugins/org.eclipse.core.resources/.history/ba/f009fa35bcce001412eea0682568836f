@@ -1,0 +1,14 @@
+
+public class mynigga {
+	public static void mynigga(String[] args){
+		char c = 'g';
+		boolean bullshit = true;
+		byte bite = 127;
+		short D = 32000;
+		int i = 2000000;
+		long l = 10000000L;
+		float f = 1234523.342343f;
+		double d = 121231241232131231.34d;
+		
+	}
+}

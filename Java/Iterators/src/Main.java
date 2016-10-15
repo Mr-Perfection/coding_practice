@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.ListIterator;
+import java.util.Set;
+
+
+public class Main {
+
+
+	public static void main(String[] args) {
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("California");
+		list.add("HelloWorld");
+		list.add("Beautiful Blonde");
+		System.out.println(list);
+		ListIterator<String>  listIterator = list.listIterator();
+		
+		while (listIterator.hasNext()) {
+			String value = listIterator.next();
+			System.out.println(value);
+		}//end while
+		
+		//HashMap
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("Beautiful Blonde", "She is so dumb");
+		map.put("California", "Sacramento");
+		map.put("HelloWorld", "MamaMia!");
+		System.out.println(map);
+		Set<String> keys = map.keySet();
+		Iterator<String> iterator = keys.iterator();
+		while (iterator.hasNext()){
+			String value = iterator.next();
+			//System.out.println(value);
+			System.out.println(value + " is related to " + map.get(value));
+		}
+	}//close public static void main()
+		
+		
+}//close class Main()

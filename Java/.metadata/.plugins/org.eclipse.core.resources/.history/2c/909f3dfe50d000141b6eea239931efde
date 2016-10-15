@@ -1,0 +1,17 @@
+
+public class Main {
+
+
+	public static void main(String[] args) {
+		int value1 = 5;
+		int value2 = 10;
+		
+		int result = addvalues(value1, value2);
+		System.out.println("The result(a+b) is: " + result);
+
+	} //public void main() ends
+	private static int addvalues(int int1, int int2){
+		return int1 + int2;
+	} //private static int addvalues() ends
+
+}// class Main ends

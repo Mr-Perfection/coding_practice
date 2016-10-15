@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
+public class Main {
+
+
+	public static void main(String[] args) {
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("California");
+		list.add("HelloWorld");
+		list.add("Beautiful Blonde");
+		System.out.println(list);
+		
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("Beautiful Blonde", "She is so dumb");
+		map.put("California", "Sacramento");
+		
+		
+		
+		map.put("HelloWorld", "MamaMia!");
+		System.out.println(map);
+	}//close public static void main()
+
+}//close class Main()

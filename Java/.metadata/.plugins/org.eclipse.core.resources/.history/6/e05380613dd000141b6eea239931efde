@@ -1,0 +1,13 @@
+
+public class Main {
+
+	
+	public static void main(String[] args) {
+		doSomething();
+
+	}
+	private static void doSomething() {
+		System.out.println("This method has been called");
+		
+	}
+}

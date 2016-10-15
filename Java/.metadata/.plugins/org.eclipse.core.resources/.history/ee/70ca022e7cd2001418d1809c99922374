@@ -1,0 +1,13 @@
+package com.StephenLee.olivepress.olives;
+
+public class Kalamata extends Olive {
+
+	public Kalamata() {
+		this.name = "Kalamata";
+		this.flavor = "grassy";
+		super(2);
+		this.color = Olive.BLACK;
+		
+	}
+
+}

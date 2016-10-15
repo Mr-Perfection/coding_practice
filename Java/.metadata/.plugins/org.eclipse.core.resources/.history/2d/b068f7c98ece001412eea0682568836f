@@ -1,0 +1,16 @@
+
+public class sample {
+	public static void main(String[] args) {
+		char c1 = '4';
+		char c2 = '4';
+		char c4 = '3';
+		
+		
+		
+		System.out.println(c1);
+		System.out.println(c2);
+		System.out.println(c4);
+		
+	
+	}
+}

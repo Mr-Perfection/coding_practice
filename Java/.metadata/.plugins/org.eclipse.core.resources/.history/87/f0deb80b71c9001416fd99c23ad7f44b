@@ -1,0 +1,11 @@
+
+public class usingBD {
+
+	
+	public static void main(String[] args) {
+		int myInt;
+		System.out.println("The value of my integer is: " +myInt);
+
+	}
+
+}

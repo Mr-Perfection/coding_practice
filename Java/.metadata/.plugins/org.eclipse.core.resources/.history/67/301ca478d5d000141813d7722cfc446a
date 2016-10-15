@@ -1,0 +1,13 @@
+
+public class Main {
+
+	public static void main(String[] args){
+		String s1 = "Welcome";
+		StringBuilder sb = new StringBuilder(s1);
+		//Basically, this method saves you memory space.
+		//Append means adding to the string.
+		//So, if you use StringBuilder... it does not consume much of your memory.
+		sb.append(" to California!");
+		System.out.println(sb);
+	}
+}

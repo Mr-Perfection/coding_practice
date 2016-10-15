@@ -1,0 +1,20 @@
+package com.StephenLee.olivepress;
+
+import com.StephenLee.olivepress.olives.Olive;
+
+public class Main {
+/*public means a method can be called 
+from anywhere in the application;
+private means it's available within the class;
+Static means that is a class method that 
+can be called from the class definition, but otherwise,
+it's an instance method.
+ex) Main -class definition, Olive and OlivePress- instance methods;
+*/
+	public static void main(String[] args) {
+		Olive.olive = new Olive();
+		olive.
+
+	}//
+
+}

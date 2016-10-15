@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Month"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="java.net.URI"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.ListIterator"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="SimpleMath"/>
+<fullyQualifiedTypeName name="InputHelper"/>
+<fullyQualifiedTypeName name="com.StephenLee.olivepress.press.OlivePress"/>
+<fullyQualifiedTypeName name="com.StephenLee.olivepress.olives.Ligarian"/>
+<fullyQualifiedTypeName name="com.StephenLee.olivepress.olives.Olive"/>
+<fullyQualifiedTypeName name="com.StephenLee.olivepress.olives.Kalamata"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.sungsoolee.olivepress.olive.Olives"/>
+</qualifiedTypeNameHistroy>

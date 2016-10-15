@@ -1,0 +1,49 @@
+package com.lynda.calc;
+import com.lynda.calc.helpers.InputHelper;
+import com.lynda.calc.helpers.MathHelper;
+
+/*Use ctrl + shift + o to figure whether to use 
+ import declarations or not!*/ 
+public class calculator2 {
+	
+	public static void main(String[] args) {
+	///Declare inputs.
+		String s1 = InputHelper.getInput("Enter a numeric value 1: ");
+		String s2 = InputHelper.getInput("Enter a numeric value 2: ");
+		String op = InputHelper.getInput("Enter 1=Add, 2=Subtract, 3=Multiply, 4=Divide");
+		double result=0;
+		
+		
+		switch (op) {
+		case "1":
+			result = MathHelper.addValues(s1, s2);
+			break;
+		
+		case "2":
+			result = MathHelper.subtractValues(s1, s2);
+			break;
+		
+		case "3":
+			result = MathHelper.multiplyValues(s1, s2);
+			break;
+		case "4":
+			result = MathHelper.divideValues(s1, s2);
+			break;
+		default:
+			System.out.println("Please enter a correct value from 1 to 4.");
+			return;
+		
+		}
+		
+		
+		System.out.println("The answer is= " + result);
+		
+		
+	}// close public static main() 
+
+	
+	 
+	 }
+
+
+

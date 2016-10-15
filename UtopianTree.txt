@@ -1,0 +1,16 @@
+
+
+
+The Utopian Tree goes through 2 cycles of growth every year. Each spring, it doubles in height. Each summer, its height increases by 1 meter.
+
+Laura plants a Utopian Tree sapling with a height of 1 meter at the onset of spring. How tall will her tree be after NN growth cycles?
+//2 cycles/year -> 2 cycles are spring and summer -> height + 1m / summer & 2* height / spring
+
+T = test cases
+N = # of cycles
+
+ex) N = 0 Height = 1// initially the height of the tree is 1.
+	N = 1 Height = 2// Spring cycle. X2	
+	N = 2 Height = 3// Summer +1	
+	N = 3 Height = 6// Spring
+	N = 4 Height = 7

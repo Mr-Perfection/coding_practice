@@ -1,0 +1,13 @@
+
+public class sample {
+	public static void main(String[] args) {
+		boolean b1 = true;
+		boolean b2 = false;
+		
+		System.out.println("value of b1 is: " + b1);
+		System.out.println("value of b1 is: " + b2);
+		boolean b3 =!b1;
+		
+		System.out.println("value of b3 is: " + b3);
+	}
+}

@@ -1,0 +1,14 @@
+
+public class sample {
+	public static void main(String[] args) {
+		char c1 = '42';
+		char c2 = '4231';
+		char c4 = '3124';
+		
+		System.out.print(c1);
+		System.out.print(c2);
+		System.out.print(c4);
+		
+	
+	}
+}

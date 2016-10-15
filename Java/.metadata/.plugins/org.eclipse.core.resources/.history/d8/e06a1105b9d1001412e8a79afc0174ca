@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+
+
+public class Main {
+
+
+	public static void main(String[] args) {
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("California");
+		list.add("HelloWorld");
+		list.add("Beautiful Blonde");
+		System.out.println(list);
+		
+
+	}
+
+}

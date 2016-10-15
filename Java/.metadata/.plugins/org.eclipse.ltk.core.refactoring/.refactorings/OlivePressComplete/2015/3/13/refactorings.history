@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;com.sungsoolee.olivepress.olive.Olives.oil&apos; in &apos;com.sungsoolee.olivepress.olive.Olives&apos;&#x0D;&#x0A;- Original project: &apos;OlivePressComplete&apos;&#x0D;&#x0A;- Original element: &apos;com.sungsoolee.olivepress.olive.Olives.oil&apos;&#x0D;&#x0A;- Getter method name: &apos;getOil&apos;&#x0D;&#x0A;- Setter method name: &apos;setOil&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type&#x0D;&#x0A;- Generate method comments" comments="true" declaring="true" description="Encapsulate field &apos;oil&apos;" flags="589830" getter="getOil" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;com.sungsoolee.olivepress.olive{Olives.java[Olives^oil" insertion="-1" setter="setOil" stamp="1427253628685" version="1.0" visibility="1"/>
+</session>

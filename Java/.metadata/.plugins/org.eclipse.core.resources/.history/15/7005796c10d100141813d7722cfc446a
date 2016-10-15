@@ -1,0 +1,12 @@
+import java.net.URI;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		URI uri = new URI("http://somecompany.com");
+
+	}//static void main() ends
+
+}//class Main() ends

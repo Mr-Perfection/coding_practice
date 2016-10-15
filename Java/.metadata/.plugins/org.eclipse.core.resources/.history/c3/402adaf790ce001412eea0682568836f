@@ -1,0 +1,22 @@
+
+public class sample {
+	public static void main(String[] args) {
+		char c1 = '4';
+		char c2 = '4';
+		char c4 = '3';
+		char dollar = '\u0024';
+		
+		
+		System.out.print(dollar);
+		System.out.print(c2);
+		System.out.println(c4);
+		
+		char a1 = 'a';
+		char b2 = 'b';
+		char c3 = 'c';
+		
+		System.out.print(Character.toUpperCase(a1));
+		System.out.print(Character.toUpperCase(b2));
+		System.out.print(Character.toUpperCase(c3));
+	}
+}

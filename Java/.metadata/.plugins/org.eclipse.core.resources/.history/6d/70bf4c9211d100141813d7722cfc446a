@@ -1,0 +1,20 @@
+import java.net.URI;
+import java.net.URISyntaxException;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		try {
+			URI uri = new URI("http://somecompany.com");
+		} catch (URISyntaxException e) {
+			
+			System.out.println(e.getMessage());
+		} //a method available to all exception objects.
+
+		System.out.println("I am alive");
+	}//static void main() ends
+
+}//class Main() ends
+

@@ -1,0 +1,61 @@
+
+Graphs are similar to tree by their structure.
+Tree is derived from graph data structure.
+
+Graph vs. Tree
+1. unlike trees, in graphs, a node can have many parents
+2. the link between the nodes may have values or weights
+	A
+   B    C    D
+
+1. Nodes
+Class Node
+{
+	char data;
+	public Node(char c)
+	{
+		this.data  = c;
+	}
+}
+
+2. Edges 
+Edge is the connection between nodes. there are two ways of representing edges.
+
+Adjacent Matrix
+Two dimensional boolean flags.
+
+Advantages:
+	1) Simplicity in implementation as you need a 2D array
+	2) Creating edges/removing edges is also easy as you need to update the Booleans
+Disadvantages:
+	1) Increased memory as you need to declare N*N matrix where N is the total number of nodes.
+	2) Redundancy of information. Represent an edge between A to B and B to A, it requires to set two boolean flag in an adjacency matrix.
+
+Adjacency list
+It is an array of linked list nodes.
+
+public void dfs()
+{
+	//DFS uses Stack data structure
+	Stack s = new Stack();
+	s.push(this.rootNode);
+	rootNode.visted = true;
+	while(!s.isEmpty())
+	{
+		Node n = (Node)s.peek();
+		Node child = getUnvisitedChildNode(n);
+		if (child != null)
+		{
+			child.visited = true;
+			printNode(child);		
+			s.push(child);
+		}
+		else
+		{
+			s.pop();
+		}
+	}
+	//Clear visited property of nodes
+	clearNodes();
+}
+

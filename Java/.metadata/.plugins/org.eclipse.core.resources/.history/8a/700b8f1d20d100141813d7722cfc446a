@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+
+
+public class Main {
+
+	public static void main(String args){
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("California");
+		list.add("CornyLand");
+		list.add("HornDogs");
+		
+		
+	}//end public static void main()
+}//end class Main()

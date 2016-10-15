@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+
+
+public class Main {
+
+	public static void main(String[] args){
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("HornDogs");
+		list.add("CornyLand");
+		list.add("California");
+		list.set(2, "HornDogs");
+		
+		System.out.println(list);
+		
+		list.add("KimJungUn");
+		System.out.println(list);
+		
+		list.remove(0);
+		System.out.println(list);
+		
+		String state = list.get(1);
+		System.out.println("The second state is " + state);
+		
+		
+		int pos= list.indexOf("California");
+		System.out.print("HornDogs is at position: " + pos);
+		
+	}//end public static void main()
+}//end class Main()

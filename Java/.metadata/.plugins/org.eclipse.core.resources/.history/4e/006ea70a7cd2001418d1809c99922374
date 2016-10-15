@@ -1,0 +1,9 @@
+package com.StephenLee.olivepress.olives;
+
+public class Kalamata extends Olive {
+
+	public Kalamata() {
+		super();
+	}
+
+}

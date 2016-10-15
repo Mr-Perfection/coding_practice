@@ -1,0 +1,34 @@
+
+public class Main {
+
+
+	public static void main(String[] args) {
+		//Enter integer values
+		int value1 = 5;
+		int value2 = 10;
+		int value3 = 42;
+		int result = addvalues(value1, value2);
+		System.out.println("The result(a+b) is: " + result);
+
+		//Enter String values 
+		
+		String string1 = "10";
+		String string2 = "42";
+		int result2 = addvalues(string1, string2);
+		
+		System.out.println("The result(string1+string2) is: " + result2);
+		
+	} //public void main() ends
+	private static int addvalues(int int1, int int2){
+		return int1 + int2;
+	} //private static int addvalues() ends
+	private static int addvalues(int int1, int int2, int int3){
+		return int1 + int2 + int3;
+	} //private static int addvalues() ends
+
+	private static int addvalues(String val1, String val2) {
+		int value1 = Integer.parseInt(val1);
+		int value2 = Integer.parseInt(val2);
+		return value1 + value2;
+	} //private static int addvalues() ends
+}// class Main ends

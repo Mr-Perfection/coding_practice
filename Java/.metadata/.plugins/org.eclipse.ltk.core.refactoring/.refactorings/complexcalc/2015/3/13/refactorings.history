@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;private static double addValues(String s1, String s2) throws NumberFormatException &apos; from &apos;calculator2.main()&apos; to &apos;calculator2&apos;&#x0D;&#x0A;- Original project: &apos;complexcalc&apos;&#x0D;&#x0A;- Method name: &apos;addValues&apos;&#x0D;&#x0A;- Destination type: &apos;calculator2&apos;&#x0D;&#x0A;- Declared visibility: &apos;private&apos;&#x0D;&#x0A;- Declare thrown runtime exceptions" comments="false" description="Extract method &apos;addValues&apos;" destination="0" exceptions="true" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src&lt;{calculator2.java" name="addValues" replace="false" selection="284 106" stamp="1427038870387" version="1.0" visibility="2"/>
+</session>

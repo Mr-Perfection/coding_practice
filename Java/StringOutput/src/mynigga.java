@@ -1,0 +1,30 @@
+import java.util.Date;
+
+
+public class mynigga {
+	
+	public static void main(String[] args){
+		char c = 'g';
+		boolean bullshit = true;
+		byte bite = 127;
+		short D = 32000;
+		int i = 2000000;
+		long l = 10000000L;
+		float f = 1234523.342343f;
+		double d = 121231241232131231.34d;
+		System.out.println(c);
+		System.out.println(bullshit);
+		System.out.println(bite);
+		System.out.println(D);
+		System.out.println(i);
+		System.out.println(l);
+		System.out.println(f);
+		System.out.println(d);
+		
+		System.out.println("The value of s is " + D);
+		System.out.println( D + " The value of s is ");
+		Date myDate = new Date();
+		System.out.println("The new date is " + myDate);
+		
+	}
+}

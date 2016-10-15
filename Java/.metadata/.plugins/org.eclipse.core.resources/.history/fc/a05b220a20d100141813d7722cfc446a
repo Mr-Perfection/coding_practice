@@ -1,0 +1,9 @@
+import java.util.ArrayList;
+
+
+public class Main {
+
+	public static void main(String args){
+		ArrayList<E>
+	}//end public static void main()
+}//end class Main()

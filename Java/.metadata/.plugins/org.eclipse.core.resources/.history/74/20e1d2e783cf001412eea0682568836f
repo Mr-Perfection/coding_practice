@@ -1,0 +1,14 @@
+import java.io.*;
+
+public class calculator {
+	
+	public static void main(String[] args) {
+		String s1 = getInput("Enter a value: ");
+		// Type your value here~!
+		System.out.println(s1);
+	} 
+
+	private static String getInput(String prompt) {
+		}
+
+

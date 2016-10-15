@@ -1,0 +1,42 @@
+public static boolean IsPermutation(String s1, String s2)
+    {
+        if(s1.length() != s2.length()) return false;
+        //Get two char arrays from s1 and s2
+        char[] array1 = s1.toCharArray();
+        Arrays.sort(array1);
+        char[] array2 = s2.toCharArray();
+        Arrays.sort(array2);
+        //initialize two hash maps
+        Map<Integer,Character> map1 = new HashMap<>();
+        Map<Integer,Character> map2 = new HashMap<>();
+        for(int i = 0; i<array1.length;++i)
+        {
+
+            map1.put(i,array1[i]);
+            map2.put(i,array2[i]);
+        }
+        if(map1.equals(map2)) return true;
+        return false;
+    }
+    //If time efficiency matters, then use iterative method with an array that stores ASCII characters from string1 and check them with string2.
+
+    public static boolean IsPermutationWithIter(String s1, String s2)
+    {
+        if(s1.length() != s2.length()) return false;
+        int[] charSet = new int[256]; //with the assumption that we are storing ASCII character
+        int i = 0;
+        for(i = 0;i<s1.length();++i)
+        {
+            int v = s1.charAt(i);
+            charSet[v]++;	//increments by one to show that there is a character in regards to the char value.
+
+        }
+
+        for(i=0;i<s2.length();++i)
+        {
+            int v = s2.charAt(i);
+            if(charSet[v] > 0) {charSet[v]--;}
+            else{return false;}
+        }
+        return true;
+    }
