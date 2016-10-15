@@ -1,0 +1,275 @@
+Arrays and Strings review
+
+Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?/****
+	My approach:
+		“if a string has all unique characters” aabdf X; abid O
+		all characters are lowercase?
+		contraints: 
+			-Can’t use any data structures (Set, ArrayList etc…)
+		Have to iterate through every character in a String. And also create an boolean array of ASCII value.
+		Inside this array, we will store the int ASCII value of each character, then if the element of array is true then return false.
+	
+	My algorithm:
+		for i=0 to String.length - 1
+			int c = string.charAt[i] - ‘a’
+			if check[c] is true
+				return false //not unique
+			else 
+				check[c] = true //set to true
+		end
+		
+		return true //unique
+	
+****/
+
+public static boolean UniqueChars(String str)
+{
+	if(str == null) return false;
+	else if(str.length() == 1) return true; //one character is unique.
+	boolean[] check = new boolean[256];
+	for(int i=0; i<str.length();++i)
+	{
+		int v = str.charAt(i) - ‘a’;
+		if(check[v] == true)
+			return false; //there are duplicates.
+		else
+			check[v] = true;
+		
+	}
+	return true;
+
+}
+
+
+Implement a function void reverse(char* str) in C or C++ which reverses a null- terminated string./****
+My approach:
+	Use Stack<Character> to store the characters. And pop them. (O(2n), space: O(n))
+	Iterate through the String in reverse order and create another char array that stores the chars. (O(n),space: O(n))
+***/
+
+
+Given two strings, write a method to decide if one is a permutation of the other.
+
+/*****
+	My Approach:
+		-Two strings(s1,s2) are parameters and given. ex) hello ohell
+		-check two strings have same length
+		-iterate through the first string
+		- have a hash map  that stores int char as a key and counts occurrences as a value .
+		-itereate the second string and have a same hash map.
+		-if they are permutation to each other then two hash maps should be the same and return true
+		-return false if map1.equals(map2) fails.
+	My algorithm:
+
+
+	function IsPermutaiton (string s1, string s2) returns boolean
+		if s1.length != s2.length return false
+		map<Character, Integer> map1, map2
+		for i=0 to s1.length -1
+			map1 stores s1.charat(i) as a key and char int value as a value
+		end
+		for i=0 to s2.length -1
+			map1 stores s2.charat(i) as a key and char int value as a value
+		end
+		if map1 equals map2 return true
+		else return false
+*****/
+
+
+public static boolean IsPermutation(String s1, String s2)
+{
+	if(s1 == null || s2 == null)	return false;
+	else if(s1.length() != s2.length()) false;
+
+	Map<Character, Integer> map1 = new HashMap<Character, Integer>();
+	Map<Character, Integer> map2 = new HashMap<Character, Integer>();
+
+	for(int i=0;i<s1.length();++i)
+	{
+		int v1 = s1.charAt(i);
+		int v2 = s2.charAT(i);
+		Character char1 = new Character(s1.charAt(i));
+		Character char2 = new Character(s2.charAt(i));
+		map1.put(char1, new Integer(v1));
+		
+		
+	}
+
+}
+
+Write a method to replace all spaces in a string with'%20'. You may assume that the string has sufficient space at the end of the string to hold the additional characters, and that you are given the "true" length of the string. (Note: if imple- menting in Java, please use a character array so that you can perform this opera- tion in place.)
+
+/*****
+	My Approach:
+		-Create StringBuilder which will store characters of a string.
+		-Itereate through the characters of a String, and if there exists a empty character store %20 instead.
+	
+*****/
+
+
+Implement a method to perform basic string compression using the counts of repeated characters. For example, the string aabcccccaaa would become a2blc5a3. If the "compressed" string would not become smaller than the original string, your method should return the original string./****
+My Approach:
+	Create a hashmap<integer, integer> that will count the ASCII values.
+	increments the value whenever there is a match for the key.
+	iterate through the string.
+
+My Algorithm:
+function CompressedString(string s) returns string
+	hashmap<Integer, Integer> map
+	
+	for(int i=0 to string length - 1)
+		int v = s.charat(i)
+		Integer curr = map.get(v)
+		if(curr is null)
+			map.put(v, 1)
+		else 
+			map.put(v,curr++)
+	end
+	
+	return CompressionHelper(map)
+	
+end
+
+function CompressionHelper(Map<Integer,Integer> m) returns string
+	StringBuilder sb
+
+	for(Integer key:m.getKeys())
+		int k = key.toInt()
+		int v = map.get(key).toInt()
+		
+		sb.append(k)
+		sb.append(v)
+		
+		
+	end
+	return sb.toString()
+
+end
+
+Time complexity O(n) = 2n
+
+****/String CompressString(String s)
+{
+	
+	HashMap<Integer, Integer> map = new HashMap<Character, Integer>();
+	for(int i=0;i<s.length();++i)
+	{
+		Character k = s.charAt(i);
+		Integer curr = map.get(k);
+		if(curr == null)
+			map.put(k,1);
+		else
+			map.put(k,curr.toInt());
+	}
+	return CompressionHelper(map);
+	
+}//EOF CompressString
+
+String CompressionHelper(Map<Chaacter,Integer> m)
+{
+	StringBuilder sb = new StringBuilder();
+	for(Integer key: m.getKeys())
+	{
+		char k = key.toChar(); //key
+		int v = map.get(key).toInt(); //value
+		
+		sb.append(k);
+		sb.append(v);
+	}
+	return sb.toString();
+}
+
+
+Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+
+/****
+>
+1234  <— offset (until number 3) until n-2
+1234
+1234
+1234<
+^
+1
+My Approach:
+	-Find all the elements at the corners(top left, top right, bot right, bot left) 
+	-Then rotate (top left -> top right, top right -> bot right etc…)
+	-Offset the corner variables and rotate .
+My Algorithm:
+function RotateImage(int[][] matrix) returns int[][]
+	int n = matrix.length
+	
+	for int i=0 to n/2 -1 //rows
+		int start = i (1)
+		int end = n -1-i (4-1-1=2)
+		for int j=start to end-1 //col (1 to 1)
+			
+			int offset = j - start 
+			int temp = matrix[i][start+offset] //store as temporary var
+			matrix[start][start+offset] (1,1) = matrix[end + offset][start] (2,1)//store bot left to top left
+			matrix[end+offset][start] = matrix[end][end-offset]//store bot right to bot left
+			matrix[end][end-offset] = matrix[start+offset][end]; //store top right to bot right
+			matrix[start-offset][end] = temp;	//store top left to top right
+
+		end
+	end
+	
+	return matrix;
+
+*****/
+
+int[][] rotateImage(int[][] matrix) //matrix is nxn
+{
+	if(matrix==null) return null;
+	int n = matrix.length;
+	
+	for(int i=0;i<n/2;++i)
+	{
+		int start = i;
+		int end = n-1-i;
+		for(int j=start;j<end;++j)
+		{
+			int offset = j - start;
+			int temp = matrix[start][start+offset]; //top element as temp variable
+			matrix[start][start+offset] = matrix[end+offset][start]; //left ->top
+			matrix[end+offset][start] = matrix[end][end-offset] // bot -> left
+			matrix[end][end-offset] = matrix[start+offset][end]; // right -> bot
+			matrix[start+offset][end] = temp; //top-> right
+		}
+	}	
+	return matrix;
+}
+
+
+Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
+
+/****
+	My Approach:
+		-create two arrays of size m and n.
+		-iterate through MXN matrix and store the values(m and n) into the arrays when there is 0.
+	
+	My Algorithm:
+		function SetZeros(int[][] matrix) returns int[][]
+			set m_set
+			set n_set
+			
+			for i=0 to m-1
+				for j=0 to n-1
+					if matrix[i][j] = 0
+						m_set.add(i)
+						n_set.add(j)
+				end
+			end	
+			
+			for i=0 to m-1
+				for j=0 to n-1
+					if m_set.contains(i) or n_set.contains(j)
+						if matrix[i][j] != 0
+							matrix[i][j] = 0
+				end
+			end	
+
+		return matrix
+		
+***/
+
+	
