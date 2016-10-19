@@ -29,7 +29,6 @@ class Node {
         }
        // System.out.println(this.wcount);
         //count words
-        
         char letter = s.charAt(0);
         //check if the children does not contain this letter
         if (!this.children.containsKey(letter))
@@ -49,9 +48,8 @@ class Node {
     {
         //if it reaches the end of the string
         if (s.isEmpty())
-        {
             return (this.word);
-        }
+        
         char letter = s.charAt(0);
         
         //check if the children does not have this letter...if this is true, return false
@@ -59,9 +57,7 @@ class Node {
         {
             return (false);
         }
-        
         return (this.children.get(letter).isWord(s.substring(1)));
-        
     }
     
     public int wordCount(String s)
@@ -69,7 +65,6 @@ class Node {
         
         if (s.isEmpty())
             return (0);
-        
         Node curr = this;
         //System.out.println("word count: " + curr.wcount );
         //iterate before s ends
@@ -98,9 +93,6 @@ class Node {
         }
         //count word
         return (curr.wcount);
-            
-       
-        
     }
 }
 
@@ -114,9 +106,7 @@ public class Solution {
         for(int a0 = 0; a0 < n; a0++){
             String op = in.next();
             String contact = in.next();
-            
             //add to the tries
-            
             if (op.equals("add"))
             {
                 root.add(contact);
@@ -124,7 +114,6 @@ public class Solution {
             else if (op.equals("find"))
             {
                 //find the string in trie
-                
                 System.out.println(root.wordCount(contact));
             }
         }
