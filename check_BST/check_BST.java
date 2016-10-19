@@ -7,23 +7,30 @@ The Node class is defined as follows:
         Node right;
      }
 */
-    // To keep tract of previous node in Inorder Traversal
+    //we will be storing the temp. node to see if prev node is less than right node.
     Node prev;
     boolean checkBST(Node root) {
+        //if root is null return true
+        if (root == null)
+            return (true);
         
-        // traverse the tree in inorder fashion and
-        // keep a track of previous node
-        if (root != null)
+        //using in order traversal to check BST
+        //is left node is null??
+        if (!checkBST(root.left))
         {
-            if (!checkBST(root.left))
-                return false;
- 
-            // allows only distinct values node
-            if (prev != null && root.data <= prev.data )
-                return false;
-            prev = root;
-            return checkBST(root.right);
+            return (false);
         }
-        return true;
+
+        //if there stored previous node and prev.data is GREATER than root.data then return FALSE
+        if (prev != null && prev.data >= root.data)
+        {
+            return (false);
+        }
+        //store the current root node
+        prev = root;
+        //go to the right node...
+        return (checkBST(root.right));
+            
+        
         
     }
