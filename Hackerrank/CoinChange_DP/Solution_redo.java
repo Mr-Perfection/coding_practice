@@ -7,7 +7,7 @@ import java.util.regex.*;
 public class Solution {
 
     //First come up with the recursive problem (top down approach)
-    static int ft_count_recursive(int i, int coins[], int n)
+    static long ft_count_recursive(int i, int coins[], int n)
     {
         /*
             base cases:
@@ -30,7 +30,7 @@ public class Solution {
         Memoization:
             In this method, we will be caching the n, the money.
     */
-    static int ft_count_cache(int i, HashMap<Integer, Integer> cache, int coins[], int n)
+    static long ft_count_cache(int i, HashMap<Integer, Integer> cache, int coins[], int n)
     {
         /*
             base cases:
@@ -56,7 +56,7 @@ public class Solution {
     
     //Apparently, memoization does not work... not sure why...
     //but traditional DP works
-    static int ft_count_DP(int n, int coins[])
+    static long ft_count_DP(int n, int coins[])
     {
         /*
             approach:
