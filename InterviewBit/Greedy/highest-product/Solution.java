@@ -6,6 +6,7 @@
 
 */
 
+
 public class Solution {
 	
 	public int[] ft_get_greater_three (ArrayList<Integer> a)
