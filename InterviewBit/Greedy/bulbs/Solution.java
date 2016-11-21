@@ -35,4 +35,24 @@ public class Solution {
         }
         return (count);
     }
+    //efficient O(N) answer.
+    // [0 1 0 1]
+    /*
+        
+    */
+    public int bulbs(ArrayList<Integer> a) {
+
+        int state = 0;
+        int count = 0;
+        int i;
+        for (i = 0; i < a.size(); ++i)
+        {
+            if (a.get(i) == state)
+            {
+                count += 1;
+                state = 1 - state;
+            }
+        }
+        return (count);
+    }
 }
