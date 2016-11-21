@@ -58,27 +58,70 @@ public class Solution {
 
 
 public class Solution {
-    
-    
-    
-    /* Function to find the candidate for Majority */
-    int findCandidate( final List<Integer> a, int size) 
+	//majority vote algorithm
+	int findCandidate( final List<Integer> a, int size) 
     {
-        int maj_index = 0, count = 1;
-        int i;
-        for (i = 1; i < size; i++) 
+    	int answer = -1, count = 0;
+    	for (int i = 0; i < size; ++i)
+    	{
+    		if (count == 0)
+    		{
+    			answer = a.get(i).intValue();
+    			count = 1;
+    		}
+    		else if (count > 0 && answer == a.get(i).intValue())
+    		{
+    			count += 1;
+    		}
+    		else
+    			count -= 1;
+    	}
+    	return (answer);
+    }
+	int findCandidate( final List<Integer> a, int size) 
+    {
+    	//this will check whether the number is already visited or not.
+        boolean[] visited = new boolean[size];
+        Arrays.fill(visited, false);
+        int count = 0;
+        int index = 0;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < size; ++i)
         {
-            if (a.get(maj_index) == a.get(i))
-                count++;
-            else
-                count--;
-            if (count == 0)
-            {
-                maj_index = i;
-                count = 1;
-            }
+            count = 0;
+        	// if this element has not been visited
+        	if (visited[i] == false)
+        	{
+        		count += 1;
+        		
+        		for (int j = i + 1; j < size; ++j)
+	        	{
+	        	    if (visited[i])
+	        	        continue ;
+	        	    else
+	        	    {
+	        	        //System.out.println("inside loop" + a.get(i) + " " + a.get(j));
+	        		    if (a.get(i).intValue() == a.get(j).intValue())
+	        		    {
+	        			    count += 1;
+	        			    visited[j] = true;
+	        		    }	   
+	        	    }
+	        	}
+	        	visited[i] = true;
+	        	//System.out.println("index is:" + i + "count is: " + count);
+        	}
+        	//System.out.println("index is:" + i + "number is: " + a.get(i) + " count: " + count);
+        	
+        	if (count > size / 2 && count > max)
+        	{
+        	    
+        		max = count;
+        		index = i;
+        	}
+        	
         }
-        return (a.get(maj_index));
+        return (a.get(index));
     }
     
 	public int majorityElement(final List<Integer> a) {
