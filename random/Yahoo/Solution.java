@@ -5,6 +5,20 @@ import java.math.*;
 import java.util.regex.*;
 
 public class Solution {
+
+
+
+    /**
+    game id| player id | team id | batting order | substitute id |
+    45252q34, asfdsa432,   asdfde3   1                1
+    45252q34, asfdsa432,   asdfde3   1                2
+    45252q34 asfdsa432   asdfde3   2                1
+    
+    45252q34, asdfsafsa,   asdfde3   1 
+    45252q34 asfdsa432   asdfde3   2                1
+
+
+    **/
     public static void main(String args[] ) throws Exception {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT */
         Scanner in = new Scanner(System.in);
@@ -51,6 +65,16 @@ import java.util.*;
 import java.text.*;
 import java.math.*;
 import java.util.regex.*;
+
+/*
+[user.p.id2] just made a three pointer! [user.p.id1] got a rebound... What? who stole the ball from [user.p.id3]
+
+answer:
+user.pid2, user.pid1
+user.pid3
+
+*/
+
 
 public class Solution {
     public static void main(String args[] ) throws Exception {
