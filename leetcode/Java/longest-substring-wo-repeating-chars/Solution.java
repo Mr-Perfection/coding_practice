@@ -87,3 +87,47 @@ public class Solution {
         
     }
 }
+
+/** function LLS (time complex: O(n^2)) => can be improved by set
+    @param String s, a string that will be used to find longest substring
+    @return int sol, a length of the longest substring w/o repeating chracters
+    */
+    
+
+public int lengthOfLongestSubstring(String s) {
+        
+        //initializations
+        int j = 0;
+        int max = 0;
+        Map<Chracter, Boolean> mem = new HashMap<Character, Boolean>();
+        
+        //check if string exists
+        if (s == null || s.length() == 0) return (0);
+        
+        //loop through the string s i..s.length-1
+        for (int i = 1; i < s.length(); ++i)
+        {
+            int count = 1;
+            
+            
+            //check backwards to see if there exists duplicates
+            int k = j;
+            while (k < i)
+            {
+                if (s.charAt(i) == s.charAt(k))
+                {
+                    j = i;
+                    break;
+                }
+                else
+                    count++;
+                k++;
+            }
+            
+            //assign maximum lenght
+            max = Math.max(count, max);
+            
+            // System.out.println("i: " + i + " count: " + count);
+        }
+        return (max);
+    }
