@@ -9,9 +9,9 @@ public class Solution {
 
 
     /**
-    game id| player id | team id | batting order | substitute id |
-    45252q34, asfdsa432,   asdfde3   1                1
-    45252q34, asfdsa432,   asdfde3   1                2
+   r id | team id | batting order | substitute id |
+    45252q34, asf game id| playedsa432,   asdfde3   1                1
+    45252q34, asfdsa432,   asdfde3   1              2
     45252q34 asfdsa432   asdfde3   2                1
     
     45252q34, asdfsafsa,   asdfde3   1 
