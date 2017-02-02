@@ -1,0 +1,5 @@
+class MyQueue {
+  public MyQueue {
+    
+  }
+}
