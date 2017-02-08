@@ -76,3 +76,37 @@ def fibonacci(n):
     # return a list of fibonacci numbers
     return list(x for x in Fib(n))
     #return list(map(lambda x: x**3,nums))
+
+
+
+
+from fractions import Fraction
+from functools import reduce
+
+def product(fracs):
+    t = reduce(lambda x,y: x*y, fracs)
+    return t.numerator, t.denominator
+
+if __name__ == '__main__':
+    fracs = []
+    for _ in range(int(input())):
+        fracs.append(Fraction(*map(int, input().split())))
+    result = product(fracs)
+    print(*result)
+
+
+
+
+#www.hackerrank.com/challenges/compress-the-string
+# my solution
+from itertools import groupby
+gs = [(len(list(g)),int(k)) for k, g in groupby(input())]
+for g in gs:
+    print(g,end=" ")
+
+# editorial
+from __future__ import print_function
+from itertools import *
+
+for i,j in groupby(map(int,list(raw_input()))):
+    print(tuple([len(list(j)), i]) ,end = " ")
