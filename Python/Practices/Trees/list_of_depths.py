@@ -13,6 +13,9 @@ my algorithm as below:
 4. get the max depth of tree for creating a linkedlist
 5. create list of linkedlists based on lists from hashmap
 Let's get started!
+
+Time complexity: O(n), n = size of a tree
+Space complexity: O(n), n = size of a tree
 """
 
 def preorder_traversal_modified(head,level,table):
@@ -20,12 +23,12 @@ def preorder_traversal_modified(head,level,table):
     if not(head):
         return -1
     max_level = level
+    # store the node into the list of that level
+    table[level].append(head)
     # right tree
     max_level = max(max_level, preorder_traversal_modified(head.right,level+1,table))
     # left tree
     max_level = max(max_level, preorder_traversal_modified(head.left,level+1,table))
-    # store the node into the list of that level
-    table[level].append(head)
     return max_level
 def list_of_depths(head):
     if not(head):
