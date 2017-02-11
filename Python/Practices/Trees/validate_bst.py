@@ -56,7 +56,7 @@ def validate_bst(root):
     if root.data > root.left.data and root.data < root.right.data:
         if check_ancestor(root):
             root.right.ancestor,root.left.ancestor = root, root
-            return validate_bst(root.left) && validate_bst(root.right)
+            return validate_bst(root.left) and validate_bst(root.right)
     return False
 
 
