@@ -1,0 +1,116 @@
+what are VPSs?
+- In VPS, you can get own copy.
+- Run multiple virtual machines in physical machine
+- You get some slice of machine
+
+
+Amazon EC2?
+- Wonderful way to plan for unexpected growth.
+- You can spawn machines automatically as your website gets popular.
+
+How to scale your site to handle your server?
+
+- Vertical Scaling
+  CPU
+    cores, L2 Cache, ..
+  Disk
+    PATA, SATA, SAS
+    RAID
+  RAM
+  ...
+  It is not full solution
+    because at some point, you will reach the celling.
+    Dual core (two processes at a time), quad core (four .. at a time) etc.
+
+- Horizontal Scaling
+  Use multiple servers
+  Load balancing
+
+Load balancing
+  Client request packet arrives at the load balancer.
+  Load balancer forwards the request to the least->most busiest server
+  Gets back to load balancer to client
+
+Client -> DNS server (do round robin, load balancing with BIND)
+
+Load Balancing with Bind (round robin method):
+Rotate whenever request comes in
+www IN A 64.131.79.131
+www IN A 64.131.79.132
+www IN A 64.131.79.133
+www IN A 64.131.79.134
+ex) google.com, $nslookup google.com
+
+  Bottlenecks
+    - If one of the servers is used by "power user" who is doing some heavy computations,
+      round robin will keep assigning the requests to the server in every rotation which may lead
+      server to go down.
+    - Again, if the website gets popular and one of the servers goes down, still need to fix this issue.
+    - Refactorization? What if we store them into like several servers dedicated to image server, GIF server, and user server
+      It does not solve the problem if the website gets popular.
+    - What if the website is ecommerce? If Stephen has a shopping cart with some items, you need to make sure to subsequently
+      redirect him to server1 during his session etc.
+    - Store the sessions into load balancer but what if load balancer breaks due to high traffic? Does not work.
+
+Better Approach: RAID (redundant array of independent disks)
+RAID0 (striping)
+  writing two identical hard drives in rotation
+RAID1
+  writing two identical hard drives simultaneously (adv.: if one of them shut down, still data is there)
+RAID5
+  nice variance of RAID1 (3 drives or 5 drives) and 1 drive is redundant
+RAID6 (best choice)
+  nice variance of RAID1 (3 drives or 5 drives) and 2 drives are redundant
+RAID10 (cost twice as much)
+  RAID0 + RAID1 (use four drives)
+...
+
+Sticky Sessions
+  Shared Storage?
+     FC (very fast shared storage (file server), expensive), ISCSI (shared file server, cheaper), MySQL (backend server to store metadata or session objects),
+     NFS (one file server and exposing hard disk to multiple other computers), etc
+  Cookies?
+     store the random number in cookies that can recognized by load balancer which server to redirect.
+     (what if users disable cookies... then it fails.)
+Load Balancers
+  Software
+    ELB
+    HAProxy
+    LVS
+    ...
+  Hardware
+    Barracuda
+    Cisco
+    Citrix
+    F5
+
+  Caching
+    .html
+    MySQL Query Cache
+    memcached
+    ...
+
+  MySQL Query Cache
+    query_cachce_type = 1
+
+  Memcached (different server)
+    $ memcache = memcache_connect(HOST,PORT);
+    $ user = memcache_get($memcache,$id);
+    ...
+    DISK is slow.
+    Database query is expensive.
+
+Replication
+  Master-Slave
+  Master-Master
+  partitioning
+  high availability
+
+                              Client
+                             LB1 - LB2 (Big random number to remember sesson, SSL encrypted tcp80
+
+                  www (webserver 1) www (webserver 2)
+
+                              LB1 - LB2 (tcp3306 for mysql)
+
+                        db1(maser) - db2(maser)

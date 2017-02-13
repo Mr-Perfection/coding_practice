@@ -63,3 +63,7 @@ def create_build_order(projects,dependencies):
             build_order.append(project)
 
     return build_order
+
+
+# time complexity: O(n + k) = # of vertexes, k = # of edges
+# space complexity: O(n + k)
