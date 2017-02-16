@@ -1,8 +1,17 @@
+Latency
+  - the time required to perform some action or to produce some result. Latency is measured in units of time --
+    hours, minutes, seconds, nanoseconds or clock periods.
+Throughput
+  - the number of such actions executed or results produced per unit of time. This is measured in units of whatever is being produced
+    (cars, motorcycles, I/O samples, memory words, iterations) per unit of time
+Bandwidth
+  - the raw capability of a communications channel to move data through that channel.
+    Typically measured in bits or bytes per second.
+
 what are VPSs?
 - In VPS, you can get own copy.
 - Run multiple virtual machines in physical machine
 - You get some slice of machine
-
 
 Amazon EC2?
 - Wonderful way to plan for unexpected growth.
@@ -114,3 +123,81 @@ Replication
                               LB1 - LB2 (tcp3306 for mysql)
 
                         db1(maser) - db2(maser)
+
+
+
+
+
+
+Cinchcast
+  Stats
+    50 milion page views a month
+    50,000 hours of audio content created
+    ...
+    Peak rate of 40,000 concurrent requests per seconds
+    Many TB/dat of data stored in MSSQL, Redis, and ElasticSearch clusters
+    100 hardware nodes in production
+  Hardware
+    - 50 web servers
+    - 15 MS SQL database servers
+    - 2 Redis NOSQL keyv value servers
+    - 2 NOdeJS servers
+    - 2 servers for elastic search cluster
+  Software and Tech Used
+    - SQL server 2005 under Microsoft Windows Server 2008
+    - Equalizer load balancers for load balancing
+    - Redis used the distributed caching layer and for message pub-sub queue
+    - NODEJS for real-time analytics and updating studio dashboard
+    - ElasticSearch : for show search
+  Monitoring
+    - NewRelic for performance monitoring
+    - Chartbeat for impact of performance on KPI (conversions, page views)
+    - Gomez, WhatsupGold, Nagios for various alerting
+    - SQL Monitor: from Red Gate - for SQL Server monitoring
+
+Justin.tv
+  Stats
+    - 2000 incoming streams at any time
+    - 30 hours per minute of video added each day
+    - 30M unique vistors per month
+    - Avg. live bandwidth is 45 GB per second.
+    - 110 Gbps for daily peak bandwidth
+    - 200 video servers. Each can send 1Gbps of video. Smaller than most CDNs yet larger than most video websites
+    - 100TB of archival storage is saved per week
+    - The complete video path can't have more than 250 msecs of latency before viewers start losing the ability to converse and interact in real-time.
+  Software and Tech Used
+  learn more:
+  http://highscalability.com/blog/2010/3/16/justintvs-live-video-broadcasting-architecture.html
+
+Play Fish
+  Stats
+    - 50M Monthly Active Users
+    - 10M Daily Active Users
+    - 100s of server Machines
+  Software and Tech Used
+    - Flash on the client side
+    - Java on the server side
+    - PHP for tools
+    - AamazonL EC2, CloudFront, S3, Hadoop/ElasticMap Reduce,
+      Hive
+
+Lessons learned from these examples:
+  Redis
+    - a "NoSQL" key-value data store. More precisely, it is a data structure server.
+    - think of Redis as Memcached, but with built-in persistence (snapshotting or journaling to disk) and more datatypes.
+    - Persistence to disk means you can use Redis as a real database instead of just a volatile cache
+    - there are other powerful features like built-in pub/sub, transactions (with optimistic locking), and Lua scripting.
+    - Redis is a fantastic choice if you want a highly scalable data store shared by multiple processes,
+      multiple applications, or multiple servers. As just an inter-process communication mechanism it is tough to beat.
+      The fact that you can communicate cross-platform, cross-server, or cross-application just as easily makes it a pretty great choice for many many use cases.
+      Its speed also makes it great as a caching layer.
+  Apache Hive
+    - a data warehouse infrastructure built on top of Hadoop for providing data summarization, query, and analysis.
+  Amazon Elastic Map Reduce
+    - a managed Hadoop framework that makes it easy, fast, and cost-effective to process vast amounts of data across dynamically scalable Amazon EC2 instances.
+      You can also run other popular distributed frameworks such as Apache Spark, HBase, Presto, and Flink in Amazon EMR, and interact with data in other AWS data stores such as Amazon S3 and Amazon DynamoDB.
+  Nginx vs HAProxy vs AWS ELB
+    - http://www.mervine.net/comparing-load-balancing
+    - HAProxy has the most options in this arena, support Round-Robin, Least Connection, Weighted and more.
+    - Nginx supports Round-Robin and Weighted only.
+    - AWS ELB only supports Round-Robin.
