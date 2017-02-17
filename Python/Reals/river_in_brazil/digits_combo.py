@@ -1,4 +1,4 @@
 """
-Find all print all possible combinations of given digits
+Find all possible combinations of given digits
 
 """
