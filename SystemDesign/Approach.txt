@@ -11,9 +11,37 @@
 
 3. Bottlenecks
   - Consider the bottlenecks these components face when the system scales.
+4. Scalable Design
+    1. Application Service layer
+        1) Start with one web server
+        2) Add a load balancer (Amazon ELB) + a cluster of machines over time: to deal with high traffic to increase availability
+    2. Data storage layer
+        1) Billions of objects
+        2) Each object is fairly small (< 1k)
+        3) there are no relationships between objects
+        4) reads are 9x more frequent than writes (360 reads, 40 writes per week)
+        5) 3TBs of urls and 36GB of hashes
 
+        MySQL
+          - Widely used
+          - Mature technology
+          - clear scaling paradigms (sharding, master/slave replication, master/master replication)
+          - used by FB, Twitter, Google, etc.
+          - index lookups are very fast
 
+        mappings
+          hash: varchar(6)
+          original_url: varchar(512)
 
+        Data store
+        - Option 1: Vertical scaling of the MySQL database
+        - Option 2: Partition the data: 5 partitions, 600GB of data, 8GB of indexes
+        - Option 3: Master-slave (reads from the slaves, writes to master, because writes are smaller than reads)
+          Use one MySQL table with two varchar fields
+          Create a unique index on the hash (36GB+). We want to hold it in memory to speed up lookups
+          Vertical scaling of the MySQL machine for awhile
+          Eventually, partition the data by taking the first char of the hash mod the number of partitions
+          Master-slave (reading form the slaves, writing to the master)
 Pratice Quizzes
 
 Let's say that you were given the following question at an interview:

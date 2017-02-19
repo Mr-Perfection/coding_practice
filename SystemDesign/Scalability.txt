@@ -201,3 +201,5 @@ Lessons learned from these examples:
     - HAProxy has the most options in this arena, support Round-Robin, Least Connection, Weighted and more.
     - Nginx supports Round-Robin and Weighted only.
     - AWS ELB only supports Round-Robin.
+  SQL vs. NoSQL
+  - http://www.thegeekstuff.com/2014/01/sql-vs-nosql-db/?utm_source=tuicool
