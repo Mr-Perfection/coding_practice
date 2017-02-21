@@ -173,7 +173,7 @@ Play Fish
   Stats
     - 50M Monthly Active Users
     - 10M Daily Active Users
-    - 100s of server Machines
+    - 100s of server Machines 
   Software and Tech Used
     - Flash on the client side
     - Java on the server side
@@ -203,3 +203,13 @@ Lessons learned from these examples:
     - AWS ELB only supports Round-Robin.
   SQL vs. NoSQL
   - http://www.thegeekstuff.com/2014/01/sql-vs-nosql-db/?utm_source=tuicool
+
+  Angular vs. React
+  DOM
+  - Angular creates customized Document Object Model (DOM) elements.
+  - React has Virtual dom: Your changes get reflected to a virtual DOM. Then you diff that with the actual dom,
+    and only update what changed. This makes updates faster.
+
+  Data Flow
+    - Angular has a two way data binding (view updates model model updates view) but React has uni-directional
+    (https://medium.com/@AdamRNeary/unidirectional-data-flow-yes-flux-i-am-not-so-sure-b4acf988196c#.i8o6n8sgb) data flow.
