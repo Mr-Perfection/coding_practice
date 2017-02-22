@@ -31,3 +31,5 @@ inputs = [1, 23, 12, 9, 30, 2, 50]
 k = 3
 
 print(kth_largest(inputs,k))
+
+# better solution n log n. Sort the list and get the last 3 elements...

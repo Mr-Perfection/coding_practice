@@ -19,6 +19,8 @@ algorithm is as follows:
 
 # implements the algorithm from above.
 def minimal_tree_helper(arr,left,right):
+    if left >= right:
+        return None
     mid = (left+right)/2
     node = Node(mid)
     node.left = minimal_tree_helper(arr,left,mid-1) # get left subtree recursively
