@@ -8,7 +8,7 @@ I get it. Coding abilities are important to the certain extent. Efficient codes 
 This is purely my personal opinion
 
 ## How can it be improved?
-I kind of know why they use these challeneges. Cheaper and easier to filter out the unqualified. I would suggest more like project based coding challenge but the problem is it takes a lot of time. People are busy with their lives or current jobs, and usually they do not have much time. Still, I think it is better.
+I kind of know why they use these challenges. Cheaper and easier to filter out the unqualified. I would suggest more like project based coding challenge but the problem is it takes a lot of time. People are busy with their lives or current jobs, and usually they do not have much time. Still, I think it is better.
 What would be much better? Give out some coding challeneges that can be relevant to the job that person apllied to. If your team uses hashmaps or arrays, then get questions related to those topics... Then, short project based challenge related to what your company does. You won't have a hard time finding great talents.
 
 
