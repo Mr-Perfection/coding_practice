@@ -1,9 +1,16 @@
 # coding_practice
 
 ## Welcome to my coding pratice repository!
-These folders/files are all the coding challenges/pratice that I have done mostly in Java programming language. 
-Most of the coding problems are done from Hackerrank.
-Unfortunately, recruiters and hiring managers do not even consider candidates without passing the coding challenges they send you via Hackerrank (or others). I know, some of these algorithms are unnecessary for some software jobs but I think once you get a solid job experience I do not think we need these anymore. Well, I don't disagree with you that coding challenge or whiteboard coding interview is a bs and does not identify how good you as a candidate. I hope one day we can identify candidates with the resumes and better interview format. I think they should score based on a combination of coding skills, personality, and how motivated/dedicated you are to the company instead of just strictly how goot at coding... Rockstar coder who is a psychopath or anti-socialist? Hmmm... This is my opinion at least. Maybe I will understand better once I start hiring software talents... Anyways, sorry for the rant and use this as your reference to help yourself improve to be better at algorithms and data structures. I will try to update as I do more coding problems. Any feedbacks or if you find better approaches, I am happy to hear from you. Check me out on Twitter (@Stephen_S_Lee)
+These folders/files are all the coding challenges/pratice that I have done mostly in Python, Ruby, JavaScript, and Java.
+Personally, I love using Python for coding challenges because so much faster to demo your thought process.
+Recruiters and hiring managers at big companies (sometimes small ones too) do not even consider candidates without passing the hardcore coding challenges they send you via Hackerrank (or others). They are fine but those really difficult ones? I have been there and very frustrated. Even people without any web development experience get a job at web companies while I sometimes get rejected by them because I missed some test cases of hardcore algorithm problems that are totally irrelavent to what the real life problems you would encounter at work... Oh wait, what about my thought process? Even though I did not get them right, how was it? Sadly, they do not care. Either you know the algorithms or not. I argue that companies are wasting talents in that way. Tech jobs are in high demand, and there are people can do the jobs but those tech interviews prevent them to find great talents.
+I get it. Coding abilities are important to the certain extent. Efficient codes are super awesome but some jobs not need to know about DPs, Trees, or even Backtracking :(. Well, as a job seeker, I went through them all and studied them. 
+This is purely my personal opinion
+
+## How can it be improved?
+I kind of know why they use these challenges. Cheaper and easier to filter out the unqualified. I would suggest more like project based coding challenge but the problem is it takes a lot of time. People are busy with their lives or current jobs, and usually they do not have much time. Still, I think it is better.
+What would be much better? Give out some coding challeneges that can be relevant to the job that person apllied to. If your team uses hashmaps or arrays, then get questions related to those topics... Then, short project based challenge related to what your company does. You won't have a hard time finding great talents.
+
 
 ## Authors
 [Stephen Lee](http://www.stephenslee.xyz) -the hacker that dreams big.
