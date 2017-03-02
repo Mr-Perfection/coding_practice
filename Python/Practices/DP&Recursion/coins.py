@@ -46,3 +46,36 @@ coins = [1,5,10,25]
 n = 10
 print(coins_dp(n,coins))
 print('-------')
+
+
+
+
+#!/bin/python3
+
+import sys
+
+def make_change(coins, n,index,table):
+    # base case: n < 0, return 0
+    if n < 0:
+        return 0
+    # base case: n == 0, return 1
+    if n == 0:
+        return 1
+    if table[n][index] > 0:
+        return table[n][index]
+    # for i...coins length
+    for i in range(index,len(coins)):
+        # result += make_change(coins, n-coins[i])
+        if n - coins[i] < 0:
+            continue
+        if table[n-coins[i]][i] != 0:
+            table[n][index] += table[n-coins[i]][i]
+        else:
+            table[n][index] += make_change(coins,n-coins[i],i,table)
+    return table[n][index]
+
+n,m = input().strip().split(' ')
+n,m = [int(n),int(m)]
+table = [[0 for j in range(m)] for i in range(n+1)]
+coins = [int(coins_temp) for coins_temp in input().strip().split(' ')]
+print(make_change(coins, n,0,table))
