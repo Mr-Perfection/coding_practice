@@ -11,13 +11,25 @@ Overlapping subproblems exist.
 Use DP.
 '''
 
+dimport time
+def coins_test(n,coins):
+    if n == 0:
+        return 1
+    elif n < 0:
+        return 0
+    result = 0
+    for coin in coins:
+        result += coins_test(n-coin,coins)
+    return result
+
+
 def coins_dp(n, coins):
     # check is coins is None or n is zero
     if not(coins) or len(coins) == 0 or n == 0:
         return 0
     # initializaitons
     # mem = [n + 1]
-    mem = [ -1 for i in range(n+1)]
+    mem = [[ -1 for j in range(len(coins))] for i in range(n+1)]
     # return the helper(n, coins, mem)
     return coins_dp_helper(n, coins, mem)
 
@@ -28,24 +40,34 @@ def coins_dp_helper(n, coins, mem):
         return 1
     elif n < 0:
         return 0
-    # if mem[n] is not -1, return mem[n]
-    if mem[n] != -1:
-        return mem[n]
+
     # initializaitons
     result = 0
     # iterate through all the possible coins
-    for coin in coins:
-        result += coins_dp_helper(n - coin, coins, mem)
+    for i in range(len(coins)):
+        if mem[n][i] == -1:
+            mem[n][i] = coins_dp_helper(n - coins[i], coins, mem)
+        result += mem[n][i]
     # store result into mem[n]
-    print(result)
-    mem[n] = result
+    #print(result)
     return result
 
 
 coins = [1,5,10,25]
-n = 10
+n = 50
+start_time = time.time()
 print(coins_dp(n,coins))
+print("--- %s seconds ---" % (time.time() - start_time))
 print('-------')
+start_time = time.time()
+print(coins_test(n,coins))
+print("--- %s seconds ---" % (time.time() - start_time))
+
+
+"""
+Interestingly, with a smaller data set, coins_test function runs slightly faster but as the n increases, the coins_dp is MUCH FASTER than coins_test
+""""
+
 
 
 
