@@ -11,23 +11,3 @@ class Node:
     def __init__(self,data):
         self.data = data
     # do something
-class Tree:
-    def __init__(self,head):
-        self.head = head
-        self.size = 0
-        self.nodes = []
-
-    # do something
-
-    def getRandomNode(self):
-        if self.size == 0:
-            return None
-        index = randint(0,self.size)
-        return nodes[index]
-
-
-
-
-from random import *
-
-print(randint(9,12))
