@@ -66,3 +66,22 @@ def recursive_multiply(num1, num2):
 
 # log n
 print(recursive_multiply(4,3))
+
+
+
+def recursive_mult(no1,no2):
+    # base case
+    if no2 <= 1:
+        return 0
+
+    result = recursive_mult(no1,int(no2/2)) if not(no2 % 2) \
+             else (no1 + recursive_mult(no1,int((no2-1)/2)))
+    # recurrence
+    return no1+no1+result
+
+print(recursive_mult(4,4))
+
+def solution(no1,no2):
+    big = max([no1,no2])
+    small = min([no1,no2])
+    return recursive_mult(big,small)

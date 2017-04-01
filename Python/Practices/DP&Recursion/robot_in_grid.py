@@ -87,3 +87,50 @@ print("--- %s seconds ---" % (time.time() - start_time))
 start_time = time.time()
 print(robot_in_grid_dp(grid))
 print("--- %s seconds ---" % (time.time() - start_time))
+
+
+
+
+def robot_in_grid_helper_dp(matrix,path,row,col,failed):
+    # base cases
+    if (row < 0 or col < 0) or not(matrix[row][col]):
+        return False
+
+    if row == 0 and col == 0:
+        path.append((row,col));
+        return True
+
+    if (row,col) in failed:
+        return False
+
+    if robot_in_grid_helper(matrix,path,row,col-1) or robot_in_grid_helper(matrix,path,row-1,col):
+        path.append((row,col));
+        return True
+    else:
+        failed.add((row,col))
+        return False
+
+def robot_in_grid_helper(matrix,path,row,col):
+    # base cases
+    if (row < 0 or col < 0) or not(matrix[row][col]):
+        return False
+    if row == 0 and col == 0:
+        path.append((row,col));
+        return True
+
+    if robot_in_grid_helper(matrix,path,row,col-1) or robot_in_grid_helper(matrix,path,row-1,col):
+        path.append((row,col));
+        return True
+    else:
+        return False
+
+def robot_in_grid(matrix):
+    path = []
+    if robot_in_grid_helper_dp(matrix,path,len(matrix)-1,len(matrix[0])-1,{}):
+        return path
+    else:
+        return None
+
+
+matrix = [[True,True,False],[True,True,True],[True,False,True]]
+print(robot_in_grid(matrix))

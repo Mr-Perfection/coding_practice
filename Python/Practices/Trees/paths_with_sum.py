@@ -73,3 +73,32 @@ def count_paths(root,value,table):
     else:
         table[value][root.data] = paths
     return table[value][root.data]
+
+
+
+"""
+PREVIOUS ALGORITHMS WONT WORK.
+We have to count paths for all possible sums.
+It does not need to start from the root node.
+Here is my O(n * log(n)) solution
+"""
+
+def paths_sum(root,values,target):
+    #base case
+    if not(root):
+        return 0
+    # initializations
+    data,result = root.data, 0
+
+    # core logic
+    values.append(target)
+    for i in range(0,len(values)):
+        values[i] -= data
+        if values[i] == 0: result += 1
+    result += paths_sum(root.left,values,target) + paths_sum(root.right,values,target)
+
+    # remove element & revert values back to previous state
+    values.pop()
+    for i in(range(0,len(values))): values[i] += data
+
+    return result

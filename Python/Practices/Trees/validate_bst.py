@@ -88,3 +88,33 @@ def validate_bst(root):
     if not(root):
         return True
     return validate_bst_helper(root,None,None)
+
+
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+
+    def helper(self,root,mx,mn):
+            if not(root): return True
+            # if root.value is less than min.value
+            if mn and root.val <= mn.val:
+                return False
+            # if root.value is greater than max.value
+            if mx and root.val >= mx.val:
+                return False
+            return self.helper(root.left,root,mn) and self.helper(root.right,mx,root)
+    def isValidBST(self, root):
+
+
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        return self.helper(root,None,None)
+        

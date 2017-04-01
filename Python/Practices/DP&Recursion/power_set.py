@@ -44,4 +44,30 @@ def power_set_helper(A,index,powerset,subset):
 A = [1,2,3,4,5]
 print(power_set(A))
 
+
+
+
+def power_set(index,arr,subset,powerset):
+
+    # check is subset is not in powerset
+    if subset not in powerset:
+        powerset.append(subset[:])
+
+    # base case
+    if index >= len(arr):
+        return
+
+    # core logic, backtracking
+    for i in range(index,len(arr)):
+        subset.append(arr[i])
+        power_set(i+1,arr,subset,powerset)
+        subset.pop()
+
+def solution(array):
+    subset,powerset = [],[]
+    power_set(0,array,subset,powerset)
+    return powerset
+
+A = [1,2,3]
+print(solution(A))
 # time: O(n*2^n)

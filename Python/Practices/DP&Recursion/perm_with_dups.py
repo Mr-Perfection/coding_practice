@@ -40,7 +40,49 @@ ys = [1,3]
 #print(list(set(xs)-set(ys)))
 print(permute_with_dups(xs))
 
-# time: n * n!
-# space: n * n!
+# time: n!
+# space: n!
 
-    # if
+def permute(index,s,solution):
+    if s not in solution:
+        solution.append(s[:])
+    if index >= len(s):
+        return
+
+    for i in range(index,len(s)):
+        s[index],s[i] = s[i],s[index]
+        permute(index+1,s,solution)
+        s[index],s[i] = s[i],s[index]
+
+s = list('aabc')
+solution = []
+permute(0,s,solution)
+print(solution)
+
+class Solution(object):
+
+    def swap(self,s, index, index2):
+        s[index],s[index2] = s[index2],s[index]
+
+    def helper(self, s, index, used, result):
+        if index == len(s)-1:
+            string = ''.join([str(i) for i in s])
+            if string not in used:
+                cand = s[:]
+                result.append(cand)
+                used.add(string)
+            return
+        for i in range(index,len(s)):
+            self.swap(s,index,i)
+            self.helper(s,index+1,used,result)
+            self.swap(s,index,i)
+    def permuteUnique(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        used = set()
+        ret = []
+        self.helper(nums,0,used,ret)
+        return ret
+        

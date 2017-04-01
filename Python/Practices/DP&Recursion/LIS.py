@@ -55,6 +55,7 @@ def lis_mem(arr,n,mem):
     return mem[n-1]
 
 
+
 # time
 # Driver program to test the functions above
 def main():
@@ -90,3 +91,41 @@ def main():
 
 if __name__=="__main__":
     main()
+
+
+import time
+
+def lis(A,n,prev):
+  if n < 0: return 0
+
+  result = 1
+  for i in range(n-1,-1,-1):
+    if prev > A[i]:
+      result = max(result,1+lis(A,i,A[i]))
+    else:
+      result = max(result,lis(A,i,prev))
+  return result
+
+def lis_dp(A,n,prev,dp):
+  if n < 0: return 0
+  if dp[prev][n]: return dp[prev][n]
+  result = 1
+  for i in range(n-1,-1,-1):
+    if prev > A[i]:
+      result = max(result,1+lis_dp(A,i,A[i],dp))
+    else:
+      result = max(result,lis_dp(A,i,prev,dp))
+  dp[prev][n] = result
+  return dp[prev][n]
+
+
+arr = [1,2,3,2,5,6,1,2,7]
+start_time = time.time()
+print(lis(arr,len(arr)-1,arr[len(arr)-1]))
+print("--- %s seconds ---" % (time.time() - start_time))
+
+d = [[0 for i in range(len(arr))] for j in range(15)]
+start_time = time.time()
+print(lis_dp(arr,len(arr)-1,arr[len(arr)-1],d))
+print(d)
+print("--- %s seconds ---" % (time.time() - start_time))

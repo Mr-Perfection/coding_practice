@@ -14,4 +14,14 @@ return [0, 1].
 
 """
 
-def twoSum(self, nums, target):
+class Solution(object):
+    def twoSum(self, numbers, target):
+        table = {}
+        if not(numbers): return None
+        for i in range(len(numbers)):
+            val = target - numbers[i]
+            if numbers[i] in table:
+                return (table[numbers[i]]+1,i+1)
+            else:
+                table[val] = i
+        return None
